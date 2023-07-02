@@ -34,3 +34,4 @@ This service provides the comment function.
 Service address： <https://github.com/gitalk/gitalk>.
 
 After the setup is complete， you need to modify the `comment`  in `_config.yml`.
+

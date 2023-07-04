@@ -1,37 +1,12 @@
-##[点我查看中文说明/Click here for Chinese instructions](https://github.com/bit-ranger/blog/blob/gh-pages/README_zh_CN.md)
-
-# Blog Address
-
-<https://bit-ranger.github.io/blog/>
+# 本仓库是利用github创建的个人博客
 
 
-# Must Modify
 
-## 1.swiftype
+参考教程：
 
-This service provides the on-site search function.
+[在 Github上建立自己的个人博客网站详细教程](http://t.csdn.cn/9LwxL)
 
-Service address: <https://swiftype.com/>.
+使用Jekyll模板：
 
-Documentation: <https://swiftype.com/documentation/site-search/crawler-quick-start/>
-
-After the setup is complete， you need to modify the `swiftype.searchId` in `_config.yml`.
-
-In your swiftype engine, go to `Install Search`, you will find the `swiftype.searchId`.
-
-```html
-<script type="text/javascript">
-...
-...
-  _st('install','swiftype.searchId','2.0.0');
-</script>
-```
-
-## 2.gitalk
-
-This service provides the comment function.
-
-Service address： <https://github.com/gitalk/gitalk>.
-
-After the setup is complete， you need to modify the `comment`  in `_config.yml`.
+[Tiffany](http://jekyllthemes.org/themes/tiffany/)
 

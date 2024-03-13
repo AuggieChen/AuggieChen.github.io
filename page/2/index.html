@@ -73,6 +73,308 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2023-10-22-C#实现读取可用的USB口" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-10-22-C#%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%8F%96%E5%8F%AF%E7%94%A8%E7%9A%84USB%E5%8F%A3/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.329Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/13/2023-10-22-C#%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%8F%96%E5%8F%AF%E7%94%A8%E7%9A%84USB%E5%8F%A3/">C#实现读取串口可用USB口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="C-实现获取串口通信口"><a href="#C-实现获取串口通信口" class="headerlink" title="C#实现获取串口通信口"></a>C#实现获取串口通信口</h1><img src="..\static\img\C#temperture\mainWindow.jpg" style="zoom:100%;" />
+
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TemperatureTest_WPF</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainWindow</span> : <span class="title">Window</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainWindow</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ButtonTest_Click</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)<span class="comment">//主要程序</span></span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取电脑上可用串口号</span></span><br><span class="line">            <span class="built_in">string</span>[] portsUSB = SerialPort.GetPortNames();</span><br><span class="line">            <span class="keyword">if</span> (portsUSB == <span class="literal">null</span> || portsUSB.Length == <span class="number">0</span>)<span class="comment">//判断有无可用的串口</span></span><br><span class="line">            &#123;</span><br><span class="line">                USBlist.Items.Clear();</span><br><span class="line">                USBlist.Items.Add(<span class="string">&quot;None&quot;</span>);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                USBlist.Items.Clear();</span><br><span class="line">                <span class="keyword">foreach</span> (<span class="built_in">string</span> port <span class="keyword">in</span> portsUSB)</span><br><span class="line">                &#123;</span><br><span class="line">                    USBlist.Items.Add(port);<span class="comment">//给list添加数据</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            USBlist.SelectedIndex = USBlist.Items.Count &gt; <span class="number">0</span> ? <span class="number">0</span> : <span class="number">-1</span>;<span class="comment">//如果里面有数据,显示第0个</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-10-22-C#%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%8F%96%E5%8F%AF%E7%94%A8%E7%9A%84USB%E5%8F%A3/" data-id="cltpfdwx3000ccstlcut20z13" data-title="C#实现读取串口可用USB口" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" rel="tag">C# 串口通信</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-08-01-StableDiffusion" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-08-01-StableDiffusion/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.326Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">tutorial</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/13/2023-08-01-StableDiffusion/">Stable Diffusion 的初步学习和使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Stable Diffusion是一个免费开源的AI绘画工具，可以被被任何人免费部署和使用。通过Stable Diffusion，可以很轻松的通过文字描述，生成对应的图片。</p>
+<p>Stable Diffusion是一个深度学习文本到图像生成模型，而Stable Diffusion WebUI把Stable Diffusion模型进行了封装，提供更加简洁易操作的界面。他们两个的关系类似父子继承关系，Stable Diffusion是父亲，Stable Diffusion WebUI是儿子，儿子继承了父亲的所以功能，自身还可以通过插件等方式获得更多能力。目前使用的最多的是Stable Diffusion WebUI，因为它界面友好，可以很方便的调整各项参数，生成高质量的图片。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1766121734072565083">Stable Diffusion WebUI 各操作系统安装教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1414y1W7QZ/?share_source=copy_web&vd_source=d731bb2788593a19ceaee0d0591aeb54">AI绘画NovelAI WebUI全插件整合究极一键包 启动器运行 无需任何下载安装！ 支持A卡CPU启动 可自由配置启动参数</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-08-01-StableDiffusion/" data-id="cltpfdwx00005cstldxdn12tu" data-title="Stable Diffusion 的初步学习和使用" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable_Diffusion</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-07-14-genshin" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-07-14-genshin/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.324Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/chitchat/">chitchat</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/13/2023-07-14-genshin/">原神现阶段存在的设计问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="原神现阶段存在设计缺陷"><a href="#原神现阶段存在设计缺陷" class="headerlink" title="原神现阶段存在设计缺陷"></a>原神现阶段存在设计缺陷</h1><h2 id="宵宫"><a href="#宵宫" class="headerlink" title="宵宫"></a>宵宫</h2><p>一个是宵宫的设计，逆飞的流星圣遗物在外观上和宵宫风格非常搭配，但是在属性设计上，后续设计了一个追忆之注连圣遗物流失元素能量来搭配飞雷之弦振的效果，导致宵宫的Q在实战里并无作用，同时宵宫的特殊重击在设计上也很割裂，似乎只是为了五星弓角色的有特殊重击随意设计的。</p>
+<h2 id="八重神子"><a href="#八重神子" class="headerlink" title="八重神子"></a>八重神子</h2><p>同时追忆套的外观和八重神子非常搭配，无论是狐狸面具或者是空之杯的占卜签筒，圣遗物的故事里也与神社有关，但是效果与八重神子不搭配。八重的设计上也非常割裂，存在和宵宫一样的问题，Q完全无作用，法器特殊重击动画但是无作用，所使用的强化材料出自渊下宫boss，也存在设计的问题。</p>
+<h2 id="枫原万叶"><a href="#枫原万叶" class="headerlink" title="枫原万叶"></a>枫原万叶</h2><p>万叶的技能设计很好，但是存在的问题是武器搭配上，那把笼吊瓶一心属性与万叶不搭配，苍古自由之誓作为琴海岛的外观武器却与万叶属性搭配。</p>
+<h2 id="赛诺"><a href="#赛诺" class="headerlink" title="赛诺"></a>赛诺</h2><p>赛诺的设计存在很大问题，首先是过度强化了他冷笑话和牌佬的人设，让他在剧情里每次都是这样的人设，产生的突兀是很严重的。其次是外观上，阿努比斯，狗头人身的形象设计，说明他应该和沙漠联系很大，但是在目前的剧情里，只提到一句他出身于沙漠，没有介绍到任何他与沙漠的关系，形象上与沙漠有很深的羁绊，但完全没有体现。</p>
+<h2 id="坎蒂丝"><a href="#坎蒂丝" class="headerlink" title="坎蒂丝"></a>坎蒂丝</h2><p>异色瞳是一大设计亮点，枪盾设计，背景故事里多次提到她是赤王后裔，但是目前的剧情仅仅体现了她是阿如村的守村人，背景故事里的阿赫玛尔相关的东西在目前的剧情里也没有体现。只有最开始到阿如村她出现了一面，剧情里就再也没有出现。后续这么久的沙漠更新里，坎蒂斯也没有出现相关剧情，探索赤王遗迹都探索完了（不过按照神的棋盘上的图案，应该还有一个最大的神殿），坎蒂斯和赤王相关的内容还是没有。</p>
+<h2 id="迪希雅"><a href="#迪希雅" class="headerlink" title="迪希雅"></a>迪希雅</h2><p>迪希雅技能设计上也存在E和Q的联系不大，问题不大。最大的问题是强度不够，Q打10拳的伤害太低，Q的施法动画没有特色。</p>
+<h2 id="妮露"><a href="#妮露" class="headerlink" title="妮露"></a>妮露</h2><p>妮露EQ技能设计上相当有特色，舞蹈的形式去战斗，可以产生特殊种子的设计也很有意思，但是天赋让她绑定水草配队，让她一切的其他设计都前功尽弃了。</p>
+<p>另外，我存在一个猜测，在初期的设计里，法器特殊重击；弓箭两种攻击方式，五星弓箭角色还有特殊蓄力重击；枪角色存在不同攻击方式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-07-14-genshin/" data-id="cltpfdwwz0004cstl75ddfd1w" data-title="原神现阶段存在的设计问题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%A5%9E-Genshin/" rel="tag">原神 Genshin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-07-08-创建MC服务器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-07-08-%E5%88%9B%E5%BB%BAMC%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.321Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tutorial/">tutorial</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/13/2023-07-08-%E5%88%9B%E5%BB%BAMC%E6%9C%8D%E5%8A%A1%E5%99%A8/">在Linux中创建MC服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="一、参考教程"><a href="#一、参考教程" class="headerlink" title="一、参考教程"></a>一、参考教程</h1><p>本博客参考教程：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.zeruns.tech/archives/584.html">Linux搭建MC私服forge版，带WEB管理面板 - Zeruns’s Blog</a></p>
+</blockquote>
+<h1 id="二、开始搭建"><a href="#二、开始搭建" class="headerlink" title="二、开始搭建"></a>二、开始搭建</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>首先你得有台服务器（已经有的可以忽略）</p>
+<p>购买服务器后选择安装CentOS系统，然后用ssh登陆服务器。</p>
+<p>在本地下载<a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xshell/">Xshell 7</a>和<a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xftp/">Xftp 7</a>用于管理服务器的文件和ssh登录。</p>
+<h2 id="进行端口开放"><a href="#进行端口开放" class="headerlink" title="进行端口开放"></a>进行端口开放</h2><p>面板需要 23333（主功能） 端口与 20010 - 20200（FTP功能）端口区间。</p>
+<p>游戏服务器默认端口是 25565。</p>
+<p>如果你使用阿里云，腾讯云或者服务商，<strong>请进入控制台到防火墙安全组策略，放行以上端口</strong>。</p>
+<p>以腾讯云为例：</p>
+<p>进入腾讯云轻量服务器控制台，进入服务器防火墙管理界面，添加规则，填入所开放的端口。</p>
+<h2 id="安装java-JDK"><a href="#安装java-JDK" class="headerlink" title="安装java&#x2F;JDK"></a>安装java&#x2F;JDK</h2><p>在Xshell里使用用户和密码登录服务器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载JDK安装包，可以去官网查找自己所学的安装包</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后面填写安装包的下载链接</span></span><br><span class="line">wget https://img.zeruns.tech/down/jdk-8u261-linux-x64.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建安装目录</span></span><br><span class="line">mkdir /usr/local/java/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压当前目录下的JDK压缩文件，压缩文件的文件名与所下载文件相同</span></span><br><span class="line">tar -zxvf jdk-8u261-linux-x64.tar.gz -C /usr/local/java/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置环境变量(安装 VIM 输入 yum -y install vim)</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在末尾添加对应变量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">滚动光标到末尾 按下 键盘上的 INS 键,切换至插入模式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输入这几串内容后 按ESC退出插入模式</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">然后按下 Shift + ; 输入 wq 并回车保存</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">（记得将指令里的路径修改成自己的文件路径）</span></span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_261   </span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">应用修改后的环境变量</span></span><br><span class="line">source /etc/profile</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">软链接程序到环境变量中</span></span><br><span class="line">ln -s /usr/local/java/jdk1.8.0_261/bin/java /usr/bin/java</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试是否安装正常，显示 java version <span class="string">&quot;1.8.0_261&quot;</span> 则为正常（或者是你所下载的java版本）</span></span><br><span class="line">java -version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装MCweb面板"><a href="#安装MCweb面板" class="headerlink" title="安装MCweb面板"></a>安装MCweb面板</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到用户目录</span></span><br><span class="line">cd ~</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载淘宝镜像源的node运行环境</span></span><br><span class="line">wget https://npm.taobao.org/mirrors/node/v12.16.1/node-v12.16.1-linux-x64.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar -zxvf node-v12.16.1-linux-x64.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">链接程序到环境变量中</span></span><br><span class="line">ln -s ~/node-v12.16.1-linux-x64/bin/node /usr/bin/node</span><br><span class="line">ln -s ~/node-v12.16.1-linux-x64/bin/npm /usr/bin/npm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试是否安装正常，显示 v12.16.1 则为正常</span></span><br><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">克隆仓库(若没有 git，请安装它 yum install git)</span></span><br><span class="line">git clone https://gitee.com/Suwingser/MCSManager.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入目录</span></span><br><span class="line">cd MCSManager/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装依赖库</span></span><br><span class="line">npm install</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动面板</span></span><br><span class="line">npm start </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或 node app.js</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>安装完成后访问 http:&#x2F;&#x2F;你的ip:23333&#x2F; 即可进入面板。</p>
+<ul>
+<li>默认账号：#master</li>
+<li>默认密码: 123456</li>
+</ul>
+<p>测试能正常登陆后回到ssh终端按Ctrl+C来结束面板，接下来设置让面板保持后台运行</p>
+<h2 id="设置后台运行和开机自启动"><a href="#设置后台运行和开机自启动" class="headerlink" title="设置后台运行和开机自启动"></a>设置后台运行和开机自启动</h2><p>创建并编辑文件<code>vim /lib/systemd/system/mcsm.service</code>，输入以下内容：</p>
+<ul>
+<li>方法1：</li>
+</ul>
+<p>按下 键盘上的 I 键,切换至插入模式</p>
+<p>输入这几串内容后（可右键直接粘贴） 按ESC退出插入模式</p>
+<p>然后按下 Shift + ; 输入 wq 并回车保存</p>
+<ul>
+<li>方法2：</li>
+</ul>
+<p>在本地创建对应文件，利用Xftp上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=MCSManager</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/node /root/MCSManager/app.js</span><br><span class="line">Restart=always</span><br><span class="line">Environment=PATH=/usr/bin:/usr/local/bin:/usr/local/node/bin</span><br><span class="line">Environment=NODE_ENV=production</span><br><span class="line">WorkingDirectory=/root/MCSManager/</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>执行下面的命令重载 Systemd 和 启用服务开机自启，这样服务就配置完成了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable mcsm</span><br></pre></td></tr></table></figure>
+
+<p>创建完成后，即可使用 <code>systemctl</code> 管理面板启动与关闭。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mcsm # 开启</span><br><span class="line">systemctl stop mcsm #关闭</span><br><span class="line">systemctl status mcsm #查询状态</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、利用MCweb管理页面创建服务器项目"><a href="#三、利用MCweb管理页面创建服务器项目" class="headerlink" title="三、利用MCweb管理页面创建服务器项目"></a>三、利用MCweb管理页面创建服务器项目</h1><p>首先在浏览器里访问 http:&#x2F;&#x2F;你的ip:23333&#x2F; 即可进入面板。</p>
+<ul>
+<li>默认账号：#master</li>
+<li>默认密码: 123456</li>
+</ul>
+<p>使用账号密码登录面板，左侧选择服务端管理，<code>创建新实例应用</code>，选择上传文件里选择自己下载好的服务端文件,开始创建。</p>
+<p>创建好进入服务器实例，在<code>Server.Properies</code>里调整服务器设置，然后启动服务器。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-07-08-%E5%88%9B%E5%BB%BAMC%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="cltpfdwwu0001cstl77zmf9fy" data-title="在Linux中创建MC服务器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B-MC-linux-web-%E6%9C%8D%E5%8A%A1%E5%99%A8-server/" rel="tag">教程 MC linux web 服务器 server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2023-07-08-“盲人”游戏策划案" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-07-08-%E2%80%9C%E7%9B%B2%E4%BA%BA%E2%80%9D%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%A1%88/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.318Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Planning/">Planning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/13/2023-07-08-%E2%80%9C%E7%9B%B2%E4%BA%BA%E2%80%9D%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%A1%88/">《盲》</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="游戏构思"><a href="#游戏构思" class="headerlink" title="游戏构思"></a>游戏构思</h1><p>灵感来源UP主<a target="_blank" rel="noopener" href="https://space.bilibili.com/10276136">诺子喵呜</a>以及《第五人格》中盲女角色，游戏设定为你是一个因为特殊原因无法看清世界的眼疾患者，我们需要在一次次探索后在脑海里构思出自己附近的世界。</p>
+<h2 id="游戏玩法"><a href="#游戏玩法" class="headerlink" title="游戏玩法"></a>游戏玩法</h2><p>类似盲女，无法直接看到所处环境，但是可以通过导盲棒间接感受到物体的大致位置，以及通过声音判断。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-07-08-%E2%80%9C%E7%9B%B2%E4%BA%BA%E2%80%9D%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E6%A1%88/" data-id="cltpfdwwm0000cstl9b2a1r73" data-title="《盲》" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AD%96%E5%88%92%E6%A1%88-%E6%9E%84%E6%80%9D/" rel="tag">策划案 构思</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2023-07-04-博客创建教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/11/2023-07-04-%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E6%95%99%E7%A8%8B/" class="article-date">
@@ -439,45 +741,6 @@
 
 
   
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/11/My-New-Post/" class="article-date">
-  <time class="dt-published" datetime="2023-03-11T15:48:38.000Z" itemprop="datePublished">2023-03-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/11/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>this is my new post with Hexo. I wanna try.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://auggiechen.github.io/2023/03/11/My-New-Post/" data-id="cltoiiqrm0005nstlb3ir34t9" data-title="My New Post" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -493,7 +756,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tutorial/">tutorial</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Planning/">Planning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/chitchat/">chitchat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tutorial/">tutorial</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
     </div>
   </div>
 
@@ -503,7 +766,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" rel="tag">博客显示测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-RTOS-stm32/" rel="tag">C RTOS stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" rel="tag">C# 串口通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/China/" rel="tag">China</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable_Diffusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/" rel="tag">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" rel="tag">博客显示测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%A5%9E-Genshin/" rel="tag">原神 Genshin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B-MC-linux-web-%E6%9C%8D%E5%8A%A1%E5%99%A8-server/" rel="tag">教程 MC linux web 服务器 server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E5%88%92%E6%A1%88-%E6%9E%84%E6%80%9D/" rel="tag">策划案 构思</a></li></ul>
     </div>
   </div>
 
@@ -513,7 +776,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" style="font-size: 20px;">博客显示测试</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a>
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/C-RTOS-stm32/" style="font-size: 10px;">C RTOS stm32</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" style="font-size: 15px;">C# 串口通信</a> <a href="/tags/China/" style="font-size: 10px;">China</a> <a href="/tags/Stable-Diffusion/" style="font-size: 20px;">Stable_Diffusion</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" style="font-size: 15px;">博客显示测试</a> <a href="/tags/%E5%8E%9F%E7%A5%9E-Genshin/" style="font-size: 10px;">原神 Genshin</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%95%99%E7%A8%8B-MC-linux-web-%E6%9C%8D%E5%8A%A1%E5%99%A8-server/" style="font-size: 10px;">教程 MC linux web 服务器 server</a> <a href="/tags/%E7%AD%96%E5%88%92%E6%A1%88-%E6%9E%84%E6%80%9D/" style="font-size: 10px;">策划案 构思</a>
     </div>
   </div>
 
@@ -522,7 +785,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
     </div>
   </div>
 
@@ -535,23 +798,23 @@
       <ul>
         
           <li>
-            <a href="/2024/03/12/new-ten-test/">new ten test</a>
+            <a href="/2024/03/13/2024-01-11-%E9%98%B4%E9%98%B3%E5%B8%88/">《阴阳师》中活动玩法分析——“伪神降临”</a>
           </li>
         
           <li>
-            <a href="/2024/03/12/this-is-nine-test/">this is nine test</a>
+            <a href="/2024/03/13/2024-01-01-AI%E7%BD%91%E7%AB%99/">AI网站记录</a>
           </li>
         
           <li>
-            <a href="/2024/03/12/eight-test/">eight test</a>
+            <a href="/2024/03/13/2023-11-21-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2024/03/12/seven-test/">seven test</a>
+            <a href="/2024/03/13/2023-11-18-%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/">孙子兵法中各个篇章的名称</a>
           </li>
         
           <li>
-            <a href="/2024/03/12/six-test/">six test</a>
+            <a href="/2024/03/13/2023-11-16-RTOS%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">FreeRTOS使用消息队列进行按键控制</a>
           </li>
         
       </ul>

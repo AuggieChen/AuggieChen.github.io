@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061void SendATCmd(char *cmd, int waitms) &amp;#123;&#x2F;&#x2F; 发送AT指令    if (NULL !&#x3D; cmd) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://auggiechen.github.io/2024/03/13/2023-11-21-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061void SendATCmd(char *cmd, int waitms) &amp;#123;&#x2F;&#x2F; 发送AT指令    if (NULL !&#x3D; cmd) &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-13T06:32:54.353Z">
+<meta property="article:modified_time" content="2023-11-28T11:47:23.808Z">
+<meta property="article:author" content="AuggieChen">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://auggiechen.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2023-11-21-无线通信" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/13/2023-11-21-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" class="article-date">
+  <time class="dt-published" datetime="2024-03-13T06:32:54.353Z" itemprop="datePublished">2024-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">SendATCmd</span><span class="params">(<span class="type">char</span> *cmd, <span class="type">int</span> waitms)</span> &#123;<span class="comment">// 发送AT指令</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != cmd) &#123;</span><br><span class="line">        HAL_UART_Transmit_DMA(&amp;huart6, (<span class="type">uint8_t</span> *)cmd,</span><br><span class="line">                              <span class="built_in">strlen</span>(cmd));</span><br><span class="line">        osDelay(waitms); <span class="comment">// 延时等待ESP01模块应答时间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">SendESP01Str</span><span class="params">(<span class="type">char</span> *str)</span> &#123; <span class="comment">// 发送字符串</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != str)</span><br><span class="line">        HAL_UART_Transmit_DMA(&amp;huart6, (<span class="type">uint8_t</span> *)str,</span><br><span class="line">                              <span class="built_in">strlen</span>(str));</span><br><span class="line">&#125;</span><br><span class="line">osDelay(<span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;测试ESP01模块是否存在...\n&quot;</span>); SendATCmd(<span class="string">&quot;AT\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;关闭模块回显\n&quot;</span>); SendATCmd(<span class="string">&quot;ATE0\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;查看模块版本信息...\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+GMR\r\n&quot;</span>, <span class="number">1000</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;开启AP模式\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+CWMODE=2\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;配置热点名称ESP01，无密码...\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+CWSAP=\&quot;ESP01\&quot;,\&quot;\&quot;,11,0\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;关闭透传模式\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+CIPMODE=0\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;设置多连接\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+CIPMUX=1\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;开启TCP服务器，端口666...\n&quot;</span>); SendATCmd(<span class="string">&quot;AT+CIPSERVER=1,666\r\n&quot;</span>, <span class="number">500</span>);</span><br><span class="line"><span class="keyword">for</span>(;;) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cid &gt;= <span class="number">0</span>) &#123; <span class="comment">// 如果有客户端连接进来，每隔1秒向客户端发送一条数据</span></span><br><span class="line">        <span class="type">char</span> cmd[<span class="number">30</span>];</span><br><span class="line">        <span class="type">char</span> str[] = <span class="string">&quot;HELLO ESP01\r\n&quot;</span>;</span><br><span class="line">        <span class="built_in">sprintf</span>(cmd, <span class="string">&quot;AT+CIPSEND=%d,%d\r\n&quot;</span>, cid, <span class="built_in">strlen</span>(str));</span><br><span class="line">        SendATCmd(cmd, <span class="number">500</span>);</span><br><span class="line">        SendESP01Str(str);</span><br><span class="line">    &#125;</span><br><span class="line">    osDelay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;) &#123;</span><br><span class="line">    <span class="comment">// 串口1接收数据处理</span></span><br><span class="line">    <span class="keyword">if</span> (osMessageQueueGet(QueueUart1Handle, dat, <span class="literal">NULL</span>, <span class="number">10</span>) == osOK) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;UART1: %s&quot;</span>, dat); <span class="comment">// 串口1打印回显</span></span><br><span class="line">        HAL_UART_Transmit_DMA(&amp;huart6, dat, <span class="built_in">strlen</span>((<span class="type">char</span> *)dat)); <span class="comment">// 转发串口6</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 串口6接收数据处理</span></span><br><span class="line">    <span class="keyword">if</span> (osMessageQueueGet(QueueUart6Handle, dat, <span class="literal">NULL</span>, <span class="number">10</span>) == osOK) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;UART6: %s&quot;</span>, dat); <span class="comment">// 串口1打印显示</span></span><br><span class="line">        <span class="type">char</span> *str = (<span class="type">char</span> *)dat;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strstr</span>(str, <span class="string">&quot;CONNECT&quot;</span>) &gt; str) cid = atoi(str); <span class="comment">// 如果有客户端连接进来，取ID号</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strstr</span>(str, <span class="string">&quot;CLOSED&quot;</span>) &gt; str) cid = <span class="number">-1</span>; <span class="comment">// 如果有客户端连接断开，关闭ID号</span></span><br><span class="line">    &#125;</span><br><span class="line">    osDelay(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (huart == &amp;huart1) &#123; <span class="comment">// 串口1接收空闲</span></span><br><span class="line">    rx1_buf[Size] = <span class="string">&#x27;\0&#x27;</span>; <span class="comment">// 末尾加字符串结束符</span></span><br><span class="line">    osMessageQueuePut(QueueUart1Handle, rx1_buf, <span class="literal">NULL</span>, <span class="number">0</span>); <span class="comment">// 发送消息到队列1</span></span><br><span class="line">    __HAL_UNLOCK(huart); <span class="comment">// 重启串口1的DMA接收</span></span><br><span class="line">    HAL_UARTEx_ReceiveToIdle_IT(&amp;huart1, rx1_buf, <span class="keyword">sizeof</span>(rx1_buf));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (huart == &amp;huart6) &#123; <span class="comment">// 串口6接收空闲</span></span><br><span class="line">    rx6_buf[Size] = <span class="string">&#x27;\0&#x27;</span>; <span class="comment">// 末尾加字符串结束符</span></span><br><span class="line">    osMessageQueuePut(QueueUart6Handle, rx6_buf, <span class="literal">NULL</span>, <span class="number">0</span>); <span class="comment">// 发送消息到队列6</span></span><br><span class="line">    <span class="comment">// 重启串口6的DMA接收</span></span><br><span class="line">    __HAL_UNLOCK(huart);</span><br><span class="line">    HAL_UARTEx_ReceiveToIdle_IT(&amp;huart6, rx6_buf, <span class="keyword">sizeof</span>(rx6_buf));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> buf[<span class="number">10</span>] = <span class="string">&quot;     &quot;</span>;<span class="comment">//四个空格</span></span><br><span class="line"><span class="type">uint16_t</span> r1, r2;</span><br><span class="line"><span class="type">uint8_t</span> keyCount = <span class="number">0</span>; <span class="comment">// 按键计数器</span></span><br><span class="line"><span class="type">uint8_t</span> lastKeyState = GPIO_PIN_RESET; <span class="comment">// 上一次按键状态</span></span><br><span class="line"><span class="type">uint32_t</span> currentKeyState; <span class="comment">// 当前按键状态</span></span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)&#123;</span><br><span class="line">    currentKeyState = ReadKey(); <span class="comment">// 读取按键状态</span></span><br><span class="line">    <span class="keyword">if</span> (currentKeyState != lastKeyState) &#123;</span><br><span class="line">        <span class="keyword">if</span> (currentKeyState&gt;<span class="number">0</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            keyCount=<span class="number">0</span>;</span><br><span class="line">            keyCount++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (keyCount &gt; <span class="number">0</span>) </span><br><span class="line">            &#123;</span><br><span class="line">                keyCount--; <span class="comment">// 按键计数器减1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    lastKeyState = currentKeyState; <span class="comment">// 更新上一次按键状态</span></span><br><span class="line">    <span class="keyword">if</span> (keyCount &gt; <span class="number">0</span>) <span class="built_in">sprintf</span>(buf, <span class="string">&quot;%04d&quot;</span>, currentKeyState);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">sprintf</span>(buf, <span class="string">&quot;    &quot;</span>); <span class="comment">// 清空显示</span></span><br><span class="line">    DispSeg(buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单个数码管显示</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Write595</span><span class="params">(<span class="type">uint8_t</span> sel, <span class="type">uint8_t</span> num, <span class="type">uint8_t</span> bdot)</span>&#123;</span><br><span class="line">    <span class="comment">// 共阴数码管，&#x27;0&#x27;～&#x27;9&#x27;，&#x27;A&#x27;～&#x27;F&#x27; 编码</span></span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">uint8_t</span> TAB[<span class="number">16</span>] = &#123; <span class="number">0x3F</span>, <span class="number">0x06</span>, <span class="number">0x5B</span>, <span class="number">0x4F</span>, <span class="number">0x66</span>, <span class="number">0x6D</span>, <span class="number">0x7D</span>, <span class="number">0x07</span>,</span><br><span class="line">                                    <span class="number">0x7F</span>, <span class="number">0x6F</span>, <span class="number">0x77</span>, <span class="number">0x7C</span>, <span class="number">0x39</span>, <span class="number">0x5E</span>, <span class="number">0x79</span>, <span class="number">0x71</span>&#125;;</span><br><span class="line">    <span class="comment">// 74HC138关数码管显示</span></span><br><span class="line">    HAL_GPIO_WritePin(A3_GPIO_Port, A3_Pin, GPIO_PIN_RESET);</span><br><span class="line">    <span class="type">uint8_t</span> dat = TAB[num &amp; <span class="number">0x0F</span>] | (bdot ? <span class="number">0x80</span> : <span class="number">0x00</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">&#x27; &#x27;</span> == num) dat = <span class="number">0</span>;    <span class="comment">// 空格关闭显示</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&#x27;.&#x27;</span> == num)    dat = <span class="number">0x80</span>;<span class="comment">// 单独小数点显示</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&#x27;-&#x27;</span> == num)    dat = <span class="number">0x40</span>;<span class="comment">// 负号显示</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; <span class="number">0x0F</span>)    dat = num;<span class="comment">// 其余数值按实际段码显示</span></span><br><span class="line">    <span class="comment">// 595串行移位输入段码</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">uint8_t</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; ++i) &#123;</span><br><span class="line">        HAL_GPIO_WritePin(SCK_GPIO_Port, SCK_Pin, GPIO_PIN_RESET);</span><br><span class="line">        HAL_GPIO_WritePin(SER_GPIO_Port, SER_Pin, (dat &amp; <span class="number">0x80</span>) ? GPIO_PIN_SET : GPIO_PIN_RESET);</span><br><span class="line">        dat &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        HAL_GPIO_WritePin(SCK_GPIO_Port, SCK_Pin, GPIO_PIN_SET);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// DISLK脉冲锁存8位输出</span></span><br><span class="line">    HAL_GPIO_WritePin(DISLK_GPIO_Port, DISLK_Pin, GPIO_PIN_RESET);</span><br><span class="line">    HAL_GPIO_WritePin(DISLK_GPIO_Port, DISLK_Pin, GPIO_PIN_SET);</span><br><span class="line">    <span class="comment">// 4位数码管片选</span></span><br><span class="line">    HAL_GPIO_WritePin(A0_GPIO_Port, A0_Pin,  (sel &amp; <span class="number">0x01</span>) ? GPIO_PIN_SET : GPIO_PIN_RESET);</span><br><span class="line">    HAL_GPIO_WritePin(A1_GPIO_Port, A1_Pin,  (sel &amp; <span class="number">0x02</span>) ? GPIO_PIN_SET : GPIO_PIN_RESET);</span><br><span class="line">    HAL_GPIO_WritePin(A2_GPIO_Port, A2_Pin, GPIO_PIN_RESET);</span><br><span class="line">    <span class="comment">// 74HC138开数码管显示</span></span><br><span class="line">    HAL_GPIO_WritePin(A3_GPIO_Port, A3_Pin, GPIO_PIN_SET);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 4位数码管动态扫描显示</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">DispSeg</span><span class="params">(<span class="type">char</span> dat[<span class="number">8</span>])</span> &#123;</span><br><span class="line">    <span class="type">uint8_t</span> sel = <span class="number">0</span>;    <span class="comment">// 数码管位选</span></span><br><span class="line">    <span class="type">uint8_t</span> bdot = <span class="number">0</span>;   <span class="comment">// 是否有小数点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">uint8_t</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; ++i) &#123;</span><br><span class="line">        <span class="type">uint8_t</span> num = dat[i];</span><br><span class="line">        <span class="keyword">if</span> (dat[i] != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dat[i + <span class="number">1</span>] == <span class="string">&#x27;.&#x27;</span>)  </span><br><span class="line">                bdot = <span class="number">1</span>; <span class="comment">// 下一位小数点合并到当前位显示</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; <span class="comment">// 小数点处理</span></span><br><span class="line">            <span class="keyword">if</span> (bdot) &#123;</span><br><span class="line">                bdot = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">continue</span>; <span class="comment">// 跳过已经合并显示的小数点</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 十六进制字符显示支持</span></span><br><span class="line">        <span class="keyword">if</span> (num &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; num &lt;= <span class="string">&#x27;9&#x27;</span>)   num -= <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (num &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; num &lt;= <span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">            num = num - <span class="string">&#x27;A&#x27;</span> + <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (num &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; num &lt;= <span class="string">&#x27;f&#x27;</span>)</span><br><span class="line">            num = num - <span class="string">&#x27;a&#x27;</span> + <span class="number">10</span>;</span><br><span class="line">        <span class="comment">// 点亮对应数码管</span></span><br><span class="line">        Write595(sel++, num, bdot);</span><br><span class="line">        osDelay(<span class="number">3</span>);     <span class="comment">// 延时3毫秒</span></span><br><span class="line">        <span class="keyword">if</span> (sel &gt;= <span class="number">4</span>)   <span class="comment">// 只显示4位数码管</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">UILogo</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">uint32_t</span> tick = <span class="number">0</span>; <span class="comment">// 定义静态变量， 存储进入界面时的时间戳</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> == tick) tick = osKernelGetTickCount(); <span class="comment">// 开始进入界面时， 记录时间戳</span></span><br><span class="line">    GUI_Clear(); <span class="comment">// 屏幕内容清空</span></span><br><span class="line">    GUI_DrawBitmap(&amp;bmLOGO,</span><br><span class="line">                   (<span class="number">128</span> - bmLOGO.XSize) / <span class="number">2</span>, (<span class="number">64</span> - bmLOGO.YSize) / <span class="number">2</span>); <span class="comment">// 居中显示校徽图片</span></span><br><span class="line">    GUI_Update(); <span class="comment">// 刷新屏幕显示</span></span><br><span class="line">    <span class="keyword">if</span> (osKernelGetTickCount() &gt;= tick + <span class="number">2000</span>) &#123; <span class="comment">// 如果当前时间已经超过进入时间2秒</span></span><br><span class="line">        g_sta = GUI_MAIN; <span class="comment">// 界面状态跳转到主菜单界面</span></span><br><span class="line">        tick = <span class="number">0</span>; <span class="comment">// 时间戳清零， 以备再次进入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">UIMain</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    GUI_Clear(); <span class="comment">// 屏幕内容清空</span></span><br><span class="line">    GUI_SetFont(&amp;GUI_FontHZ_SimSun_16); <span class="comment">// 设置文本字体为16号宋体</span></span><br><span class="line">    GUI_DispStringHCenterAt(<span class="string">&quot;主菜单&quot;</span>, <span class="number">64</span>, <span class="number">0</span>); <span class="comment">// 屏幕正上方居中显示标题</span></span><br><span class="line">    <span class="keyword">if</span> (GUI_LED == g_sta_select) &#123; <span class="comment">// 如果待选界面为LED状态</span></span><br><span class="line">        GUI_DispStringHCenterAt(<span class="string">&quot;* LED状态&quot;</span>, <span class="number">64</span>, <span class="number">20</span>);</span><br><span class="line">        GUI_DispStringHCenterAt(<span class="string">&quot;按键状态&quot;</span>, <span class="number">64</span>, <span class="number">40</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果待选界面为按键状态</span></span><br><span class="line">        GUI_DispStringHCenterAt(<span class="string">&quot;LED状态&quot;</span>, <span class="number">64</span>, <span class="number">20</span>);</span><br><span class="line">        GUI_DispStringHCenterAt(<span class="string">&quot;* 按键状态&quot;</span>, <span class="number">64</span>, <span class="number">40</span>);</span><br><span class="line">    &#125; </span><br><span class="line">    GUI_Update(); <span class="comment">// 刷新屏幕显示</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">UILeds</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    GPIO_TypeDef* LED_Ports[<span class="number">8</span>] = &#123; <span class="comment">// 定义LED灯端口数组， 如果8个灯都是一个Port， 可以不用</span></span><br><span class="line">        L1_GPIO_Port, L2_GPIO_Port, L3_GPIO_Port, L4_GPIO_Port,</span><br><span class="line">        L5_GPIO_Port, L6_GPIO_Port, L7_GPIO_Port, L8_GPIO_Port&#125;;</span><br><span class="line">    <span class="type">uint16_t</span> LED_Pin[<span class="number">8</span>] = &#123;L1_Pin, L2_Pin, L3_Pin, L4_Pin, L5_Pin, L6_Pin, L7_Pin, L8_Pin&#125;; <span class="comment">// 引脚数组</span></span><br><span class="line">    GUI_Clear(); <span class="comment">// 屏幕内容清空</span></span><br><span class="line">    GUI_SetFont(&amp;GUI_FontHZ_SimSun_16); <span class="comment">// 设置文本字体为16号宋体</span></span><br><span class="line">    GUI_DispStringHCenterAt(<span class="string">&quot;LED状态&quot;</span>, <span class="number">64</span>, <span class="number">0</span>); <span class="comment">// 屏幕正上方居中显示标题</span></span><br><span class="line">    <span class="type">int</span> tx, ty; <span class="comment">// 定义绘图临时变量</span></span><br><span class="line">    tx = ty = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; ++i) &#123; <span class="comment">// 循环遍历8个LED灯</span></span><br><span class="line">        GUI_DrawRect(<span class="number">16</span> * i + <span class="number">1</span>, <span class="number">20</span>, <span class="number">16</span> * i + tx, <span class="number">20</span> + ty); <span class="comment">// 绘制边框</span></span><br><span class="line">        <span class="keyword">if</span> (HAL_GPIO_ReadPin(LED_Ports[i], LED_Pin[i]) == GPIO_PIN_RESET) <span class="comment">// 读取端口电平</span></span><br><span class="line">            GUI_FillRect(<span class="number">16</span> * i + <span class="number">1</span>, <span class="number">20</span>, <span class="number">16</span> * i + tx, <span class="number">20</span> + ty); <span class="comment">// 如果亮灯则填充矩形</span></span><br><span class="line">    &#125;</span><br><span class="line">    GUI_Update(); <span class="comment">// 刷新屏幕显示</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">UIKeys</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    GUI_Clear(); <span class="comment">// 屏幕内容清空</span></span><br><span class="line">    GUI_SetFont(&amp;GUI_FontHZ_SimSun_16); <span class="comment">// 设置文本字体为16号宋体</span></span><br><span class="line">    GUI_DispStringHCenterAt(<span class="string">&quot;按键状态&quot;</span>, <span class="number">64</span>, <span class="number">0</span>);<span class="comment">// 屏幕正上方居中显示标题</span></span><br><span class="line">    GPIO_PinState ps = HAL_GPIO_ReadPin(K1_GPIO_Port, K1_Pin);<span class="comment">// 定义变量， 读取K1按键电平</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_RESET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">26</span>, <span class="number">20</span>); <span class="comment">// 绘制不同符号表示按键按压状态</span></span><br><span class="line">    ps = HAL_GPIO_ReadPin(K4_GPIO_Port, K4_Pin); <span class="comment">// K4按键</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_RESET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">26</span>, <span class="number">48</span>);</span><br><span class="line">    ps = HAL_GPIO_ReadPin(K2_GPIO_Port, K2_Pin); <span class="comment">// K2按键</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_RESET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">6</span>, <span class="number">34</span>);</span><br><span class="line">    ps = HAL_GPIO_ReadPin(K3_GPIO_Port, K3_Pin); <span class="comment">// K3按键</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_RESET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">46</span>, <span class="number">34</span>);</span><br><span class="line">    ps = HAL_GPIO_ReadPin(K5_GPIO_Port, K5_Pin); <span class="comment">// K5按键</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_SET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">86</span>, <span class="number">34</span>); <span class="comment">// 注意电平方式和前4个按键不同</span></span><br><span class="line">    ps = HAL_GPIO_ReadPin(K6_GPIO_Port, K6_Pin); <span class="comment">// K6按键</span></span><br><span class="line">    GUI_DispStringAt(GPIO_PIN_SET == ps ? <span class="string">&quot;●&quot;</span> : <span class="string">&quot;○&quot;</span>, <span class="number">106</span>, <span class="number">34</span>);</span><br><span class="line">    GUI_Update(); <span class="comment">// 刷新屏幕显示</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://auggiechen.github.io/2024/03/13/2023-11-21-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" data-id="cltpfdwx8000xcstl64m08g2p" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/13/2024-01-01-AI%E7%BD%91%E7%AB%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          AI网站记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/13/2023-11-18-%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">孙子兵法中各个篇章的名称</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Planning/">Planning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/chitchat/">chitchat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tutorial/">tutorial</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-RTOS-stm32/" rel="tag">C RTOS stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" rel="tag">C# 串口通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/China/" rel="tag">China</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable_Diffusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/" rel="tag">game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" rel="tag">博客显示测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%A5%9E-Genshin/" rel="tag">原神 Genshin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B-MC-linux-web-%E6%9C%8D%E5%8A%A1%E5%99%A8-server/" rel="tag">教程 MC linux web 服务器 server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%96%E5%88%92%E6%A1%88-%E6%9E%84%E6%80%9D/" rel="tag">策划案 构思</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/C-RTOS-stm32/" style="font-size: 10px;">C RTOS stm32</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" style="font-size: 15px;">C# 串口通信</a> <a href="/tags/China/" style="font-size: 10px;">China</a> <a href="/tags/Stable-Diffusion/" style="font-size: 20px;">Stable_Diffusion</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%98%BE%E7%A4%BA%E6%B5%8B%E8%AF%95/" style="font-size: 15px;">博客显示测试</a> <a href="/tags/%E5%8E%9F%E7%A5%9E-Genshin/" style="font-size: 10px;">原神 Genshin</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%95%99%E7%A8%8B-MC-linux-web-%E6%9C%8D%E5%8A%A1%E5%99%A8-server/" style="font-size: 10px;">教程 MC linux web 服务器 server</a> <a href="/tags/%E7%AD%96%E5%88%92%E6%A1%88-%E6%9E%84%E6%80%9D/" style="font-size: 10px;">策划案 构思</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/13/2024-01-11-%E9%98%B4%E9%98%B3%E5%B8%88/">《阴阳师》中活动玩法分析——“伪神降临”</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/13/2024-01-01-AI%E7%BD%91%E7%AB%99/">AI网站记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/13/2023-11-21-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/13/2023-11-18-%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95/">孙子兵法中各个篇章的名称</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/13/2023-11-16-RTOS%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">FreeRTOS使用消息队列进行按键控制</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 AuggieChen<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
